@@ -1,20 +1,23 @@
 server:
-  port: 8081
+  port: 8181
   #context-path: /item
 
 
 spring:
   application:
-    name: microservice-item
+    name: microservice-item  #服务名称
 
 eureka:
   client:
     registerWithEureka: true #是否将自己注册到Eureka服务中，默认为true
     fetchRegistry: true #是否从Eureka中获取注册信息，默认为true
     serviceUrl: #Eureka客户端与Eureka服务端进行交互的地址
-      defaultZone: http://whling:whling123@127.0.0.1:6868/eureka/,http://whling:whling123@127.0.0.1:6869/eureka/
+      defaultZone: http://whling:whling123@127.0.0.1:6868/eureka/ # ,http://whling:whling123@127.0.0.1:6869/eureka/
   instance:
     prefer-ip-address: true #将自己的ip地址注册到Eureka服务中
+    ip-address: 127.0.0.1  #配置服务发布的地址
+    #instance-id: microservice-item #配置实例id
+
 
 
 

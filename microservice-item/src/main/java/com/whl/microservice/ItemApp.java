@@ -10,9 +10,9 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
  */
 @EnableDiscoveryClient   //申明这是一个Eureka的客户端
 @SpringBootApplication
-public class AppMain {
+public class ItemApp {
 
     public static void main(String[] args) {
-        SpringApplication.run(AppMain.class, args);
+        SpringApplication.run(ItemApp.class, args);
     }
 }
