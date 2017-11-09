@@ -1,0 +1,11 @@
+server:
+  port: 6688
+spring:
+  application:
+    name: microservice-zuul
+
+zuul:
+  routes:
+    item-service:   #配置路由的名称
+      path: /item-service/**      #url请求路径
+      url: http://127.0.0.1:8081   #服务映射地址

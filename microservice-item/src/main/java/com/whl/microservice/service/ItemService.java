@@ -1,6 +1,9 @@
 package com.whl.microservice.service;
 
 import com.whl.microservice.pojo.Item;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.HashMap;
@@ -12,7 +15,13 @@ import java.util.Map;
  */
 @Service
 public class ItemService {
+
+    private static final Logger logger = LoggerFactory.getLogger(ItemService.class);
+
     private static final Map<Long, Item> MAP = new HashMap<Long, Item>();
+
+    @Value("${server.port}")
+    private String port;
 
     static { // 准备一些静态数据
         MAP.put(1L, new Item(1L, "商品标题1", "http://图片1", "商品描述1", 1000L));
@@ -32,6 +41,7 @@ public class ItemService {
      * @return
      */
     public Item queryItemById(Long id) {
+        logger.info("port:{}", port);
         return MAP.get(id);
     }
 
