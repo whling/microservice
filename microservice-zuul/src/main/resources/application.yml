@@ -4,8 +4,22 @@ spring:
   application:
     name: microservice-zuul
 
+eureka:
+  client:
+    registerWithEureka: true #是否将自己注册到Eureka服务中，默认为true
+    fetchRegistry: true #是否从Eureka中获取注册信息，默认为true
+    serviceUrl: #Eureka客户端与Eureka服务端进行交互的地址
+      defaultZone: http://whling:whling123@127.0.0.1:6868/eureka/
+  instance:
+    prefer-ip-address: true #将自己的ip地址注册到Eureka服务中
+
 zuul:
   routes:
-    item-service:   #配置路由的名称
+    microservice-item:   #配置路由的名称
       path: /item-service/**      #url请求路径
-      url: http://127.0.0.1:8081   #服务映射地址
+#      url: http://127.0.0.1:8081   #服务映射地址
+#      serviceId: microservice-item
+    order-service1:
+      path: /order-service/**
+#      url: http://127.0.0.1:8082
+    serviceId: microservice-order
